@@ -35,10 +35,8 @@ public class UserController {
         return new ResponseEntity<>(userService.setDataUser(userRequest), HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/{userId}")
-    public ResponseEntity<?> editUser(@PathVariable Long userId, @RequestBody UserRequest userRequest) {
-        userRequest.setUserid(userId);
-        userService.setDataUser(userRequest);
+    @PutMapping
+    public ResponseEntity<?> editUser(@RequestBody UserRequest userRequest) {
         return ResponseEntity.ok(userService.setDataUser(userRequest));
     }
 
